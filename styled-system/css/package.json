@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
-    "@soroush.tech/styled-system": "workspace:*",
+    "@soroush.tech/styled-system": "^5.1.6",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "5.0.1"

@@ -13,7 +13,7 @@
     "sirv-cli": "^2.0.2"
   },
   "dependencies": {
-    "@soroush.tech/styled-system": "workspace:*",
+    "@soroush.tech/styled-system": "^5.1.6",
     "emotion": "^10.0.9",
     "svelte": "^3.0.0"
   },
