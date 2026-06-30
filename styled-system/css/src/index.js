@@ -61,14 +61,14 @@ export const App = (props) => {
             },
           }}
         />
-        <Heading>@styled-system/css example</Heading>
+        <Heading>@soroush.tech/styled-system/css example</Heading>
         <pre
           css={css({
             fontFamily: 'monospace',
             color: 'primary',
           })}
         >
-          npm i @styled-system/css
+          npm i @soroush.tech/styled-system
         </pre>
       </Root>
     </ThemeContext.Provider>
