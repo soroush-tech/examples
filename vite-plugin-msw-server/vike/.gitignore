@@ -1,0 +1,9 @@
+# Vike / Vite build output
+dist/
+
+# Playwright
+test-results/
+playwright-report/
+
+# deps
+node_modules/

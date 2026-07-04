@@ -1,0 +1,30 @@
+{
+  "name": "@vite-plugin-msw-server/vike-demo",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Vike (+ React) demo for @soroush.tech/vite-plugin-msw-server — server-side fetches resolved against msw mocks during dev (SSR) and build (SSG prerender).",
+  "scripts": {
+    "dev": "vike dev",
+    "start": "vike dev",
+    "build": "vike build",
+    "preview": "vike preview --port 3000",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "vike": "^0.4.259",
+    "vike-react": "^0.6.23"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@soroush.tech/vite-plugin-msw-server": "^0.2.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "msw": "^2.14.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
