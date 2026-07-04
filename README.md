@@ -64,3 +64,7 @@ See [`bench/README.md`](./bench/README.md) for the full flag reference and sampl
 - These folders are **outside** any pnpm workspace — install each one independently.
 - Installed dependencies, build output, and lockfiles are intentionally untracked
   (see [`.gitignore`](./.gitignore)); every example resolves its package fresh from npm.
+
+## License
+
+[MIT](./LICENSE) © Masoud Soroush
