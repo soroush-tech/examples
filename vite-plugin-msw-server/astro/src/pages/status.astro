@@ -1,0 +1,37 @@
+---
+// The same server-side fetch, but this page highlights the *dev* moment. Under
+// `astro dev` the frontmatter re-runs on every request, so refreshing updates `servedAt`
+// — each response comes from the plugin's msw/node server (started via Vite's
+// `configureServer` hook). A production build prerenders this page too, freezing the
+// timestamp; the per-request behaviour is a dev-time thing.
+type Status = { ok: boolean; region: string; servedAt: string }
+
+const res = await fetch('https://api.example.test/status')
+const status: Status = await res.json()
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dev-time SSR · vite-plugin-msw-server</title>
+  </head>
+  <body>
+    <main>
+      <h1>Dev-time SSR, mocked</h1>
+      <p>
+        Run <code>npm run dev</code> and refresh this page — <code>servedAt</code> changes
+        each request because the frontmatter re-runs on the server and the plugin mocks it.
+      </p>
+      <dl>
+        <dt>ok</dt>
+        <dd>{String(status.ok)}</dd>
+        <dt>region</dt>
+        <dd>{status.region}</dd>
+        <dt>servedAt</dt>
+        <dd>{status.servedAt}</dd>
+      </dl>
+      <p><a href="/">← Back to the SSG demo</a></p>
+    </main>
+  </body>
+</html>

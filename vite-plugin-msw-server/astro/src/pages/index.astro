@@ -1,0 +1,33 @@
+---
+// This frontmatter runs on the server: during `astro dev` (per request) and during
+// `astro build` (prerender). The plugin's msw/node server intercepts the fetch below, so
+// the product list is deterministic and never depends on a live API — even at build time.
+type Product = { id: string; name: string; price: number }
+
+const res = await fetch('https://api.example.test/products')
+const products: Product[] = await res.json()
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>vite-plugin-msw-server · Astro SSG demo</title>
+  </head>
+  <body>
+    <main>
+      <h1>Build-time SSG, mocked</h1>
+      <p>
+        This list is fetched in the page frontmatter and rendered on the server. Run
+        <code>npm run build</code> and open <code>dist/index.html</code> — the products are
+        baked in, resolved against msw mocks with no live API in sight.
+      </p>
+      <ul>
+        {products.map((product) => (
+          <li>{product.name} — ${product.price}</li>
+        ))}
+      </ul>
+      <p><a href="/status">See the dev-time SSR demo →</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# Astro build output and generated types
+dist/
+.astro/
+
+# Playwright
+test-results/
+playwright-report/
+
+# deps
+node_modules/
