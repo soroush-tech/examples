@@ -1,0 +1,10 @@
+# Remix / Vite build output
+build/
+.cache/
+
+# Playwright
+test-results/
+playwright-report/
+
+# deps
+node_modules/
