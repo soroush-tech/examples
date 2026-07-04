@@ -17,10 +17,12 @@ npm install && npm run dev
 | Folder  | Stack                      | Demonstrates                                                       | Run                          |
 | ------- | -------------------------- | ----------------------------------------------------------------- | ---------------------------- |
 | `astro` | **Astro (Vite + SSG/SSR)** | Server-side fetches mocked during `astro dev` and `astro build`, verified with a Playwright e2e test | `npm run dev` · `build` · `preview` · `test:e2e` |
-| `vike`  | **Vike + React (Vite + SSG/SSR)** | The same demo on Vike: `+data.ts` fetches mocked during `vike dev` and prerendered by `vike build`, verified with a Playwright e2e test | `npm run dev` · `build` · `preview` · `test:e2e` |
+| `vike`  | **Vike + React (Vite + SSG/SSR)** | The same demo on Vike, with the fetches streamed through `<Suspense>` + an error boundary; mocked during `vike dev` and prerendered by `vike build`, verified with a Playwright e2e test | `npm run dev` · `build` · `preview` · `test:e2e` |
 
-The two examples are deliberately identical in behaviour — same mocks, same two pages, same
-e2e assertions — to show the plugin is host-agnostic across Vite-powered frameworks.
+Both examples share the same mocks and pages to show the plugin is host-agnostic across
+Vite-powered frameworks. The Vike one additionally wraps the server-side fetch in a
+`<Suspense>` boundary with a React error boundary, so it also demonstrates loading and error
+states.
 
 ## Why not Next.js?
 
