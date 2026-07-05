@@ -18,6 +18,7 @@ npm install && npm run dev
 | ------- | -------------------------- | ----------------------------------------------------------------- | ---------------------------- |
 | `astro`     | **Astro (Vite + SSG/SSR)** | Server-side fetches mocked during `astro dev` and `astro build`, verified with a Playwright e2e test | `npm run dev` · `build` · `preview` · `test:e2e` |
 | `vike`      | **Vike + React (Vite + SSG/SSR)** | The same demo on Vike, with the fetches streamed through `<Suspense>` + an error boundary; mocked during `vike dev` and prerendered by `vike build` | `npm run dev` · `build` · `preview` · `test:e2e` |
+| `react-router` | **React Router v7 (Vite + SSG/SSR)** | The demo on React Router v7 with `prerender`; loaders mocked during dev **and** baked into static HTML by `react-router build`, verified with a Playwright e2e test | `npm run dev` · `build` · `start` · `test:e2e` |
 | `sveltekit` | **SvelteKit (Vite + SSR)** | The demo on SvelteKit — **dev-only** (see below), with a `+error.svelte` error state; mocked during `vite dev`, verified with a Playwright e2e test | `npm run dev` · `build` · `test:e2e` |
 | `remix`     | **Remix (Vite + SSR)** | The demo on Remix — **dev-only**, with a route `ErrorBoundary` error state; loaders mocked during `remix vite:dev`, verified with a Playwright e2e test | `npm run dev` · `build` · `test:e2e` |
 
@@ -33,10 +34,12 @@ The plugin hooks into **Vite's** dev/build pipeline: `configureServer` covers `v
 Vite build** — as it does for Astro and Vike. Frameworks that render on their own server
 runtime cover the **dev path only**:
 
-- **Astro, Vike** — dev **and** build (prerender runs inside the Vite build). ✅ full
-- **SvelteKit, Remix** — dev only. Their production output runs on a separate server
-  (SvelteKit prerenders in a separate process; Remix serves via `remix-serve`), where the
-  plugin isn't active. Each example's README has the details.
+- **Astro, Vike, React Router v7** — dev **and** build (prerender runs inside the Vite
+  build). ✅ full
+- **SvelteKit, Remix (v2)** — dev only. Their production/SSG output runs elsewhere: SvelteKit
+  prerenders in a separate process; Remix v2 serves via `remix-serve` and its `remix-ssg`
+  static export uses the classic (non-Vite) compiler the plugin can't hook. (For SSG in this
+  family, use **React Router v7**'s `prerender` — the `react-router` example above.)
 - **Nuxt** — **not supported.** Nuxt dev runs Vite and its Nitro SSR runtime in *separate*
   processes linked by a vite-node IPC socket; starting msw in the Vite process both misses
   the Nitro process (where `$fetch` runs) and deadlocks that socket. The fix is to start msw

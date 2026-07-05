@@ -1,0 +1,10 @@
+# React Router / Vite build output and generated types
+.react-router/
+build/
+
+# Playwright
+test-results/
+playwright-report/
+
+# deps
+node_modules/
