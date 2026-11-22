@@ -75,7 +75,12 @@ function BindingProbe() {
     <Card>
       <Text style={styles.title}>Which binding?</Text>
       <Text>{`umber-style/react resolved to ${binding}.`}</Text>
-      <Text style={styles.note}>{`themeClass(lightTheme) gave "${lightClass}".`}</Text>
+      {/* The same call on both platforms. It does not follow the switch: it asks for the light theme. */}
+      <Text style={styles.note}>
+        {lightClass === ''
+          ? 'themeClass(lightTheme) gave "": React Native has no classes, so it is always empty.'
+          : `themeClass(lightTheme) gave "${lightClass}": the class a web page puts on an element.`}
+      </Text>
       <Text style={styles.note}>{`A sheet entry is ${shape}.`}</Text>
       <Text style={styles.note}>{`The elements are ${hostElements}.`}</Text>
     </Card>
