@@ -1,0 +1,30 @@
+{
+  "name": "@umber-style-examples/universal",
+  "version": "0.0.0",
+  "private": true,
+  "description": "One component source for the web and React Native with UmberStyle: umber-style/react resolves to the React binding on the web and to the React Native binding on a phone.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web --port 8081",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "typecheck": "tsc --noEmit",
+    "export:web": "expo export --platform web",
+    "export:android": "expo export --platform android",
+    "export:ios": "expo export --platform ios"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~58.0.17",
+    "expo": "~58.0.26",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-web": "^0.21.4",
+    "umber-style": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.3.0",
+    "typescript": "~6.0.3"
+  }
+}

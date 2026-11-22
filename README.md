@@ -11,6 +11,7 @@ Clone this repo (or copy any single folder), install, and run.
 | -------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | [`styled-system/`](./styled-system)    | [`@soroush.tech/styled-system`](https://www.npmjs.com/package/@soroush.tech/styled-system) | Seven app demos of the style props / `css` API across styled-components, Emotion, Svelte, and a typed Vite tour. |
 | [`bench/`](./bench)                     | [`@soroush.tech/bench`](https://www.npmjs.com/package/@soroush.tech/bench)                  | Runnable benchmarks driven by the `soroush-bench` CLI in a CPU/RAM-pinned Docker sandbox.        |
+| [`umber-style/`](./umber-style)         | [`umber-style`](https://www.npmjs.com/package/umber-style)                                 | Six apps of the UmberStyle engine: a static themed page, React, Vue, plain TypeScript, the Next.js App Router, and one source for the web and React Native. |
 
 ## `styled-system/`
 
@@ -58,6 +59,33 @@ npm run bench -- ./styled-system-hardest.bench.ts --cpuset 0 --cpus 1 --memory 5
 ```
 
 See [`bench/README.md`](./bench/README.md) for the full flag reference and sample output.
+
+## `umber-style/`
+
+[![npm version](https://img.shields.io/npm/v/umber-style.svg)](https://www.npmjs.com/package/umber-style)
+[![unpacked size](https://img.shields.io/npm/unpacked-size/umber-style)](https://www.npmjs.com/package/umber-style)
+[![monthly downloads](https://img.shields.io/npm/dm/umber-style.svg)](https://www.npmjs.com/package/umber-style)
+
+Examples of UmberStyle, the styling engine whose theme tokens are CSS variables and whose theme switch is
+a class change. Each subfolder is a self-contained app on the published `umber-style` and
+`@umber-style/*` packages. `cd` in, install, and run it:
+
+```sh
+cd umber-style/react
+npm install && npm run dev
+```
+
+| Example           | Stack                            | Demonstrates                                                                                   |
+| ----------------- | -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `static-themes`   | Vite + React, prerendered        | Themes as a class on `<html>`, the stored choice before the first paint, nested and run-time themes, an override through `style` |
+| `react`           | Vite + React                     | The React binding: `styled`, themes, sheets, `css`, `keyframes`, global styles, states, variants |
+| `vue`             | Vite + Vue 3                     | The same tour with the Vue binding, in single-file components                                  |
+| `vanilla`         | Vite + TypeScript                | The engine alone (`@umber-style/core`), no framework                                           |
+| `next-app-router` | Next.js App Router               | Server components on the server build, and the registry for client components with streaming  |
+| `universal`       | Expo (web, iOS, Android)             | One component source for the web and React Native, through `umber-style/react`                 |
+
+See [`umber-style/README.md`](./umber-style/README.md) for the versions they were verified with and
+what is known in 0.2.0.
 
 ## Notes
 

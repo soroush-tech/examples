@@ -1,0 +1,24 @@
+﻿{
+  "name": "@umber-style-examples/vue",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tour of @umber-style/vue in a Vite app with single-file components: styled, ThemeProvider, useTheme, StyleSheet, css, keyframes, global styles, a responsive value, states, a variant and a theme switch.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@umber-style/is-prop-valid": "^0.2.0",
+    "@umber-style/vue": "^0.2.0",
+    "vue": "^3.5.46"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.11",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.8",
+    "vue-tsc": "^3.3.14"
+  }
+}
