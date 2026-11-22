@@ -36,8 +36,8 @@ The bundler picks the host file: Metro takes `host.native.tsx` for iOS and Andro
 
 In the browser:
 
-- The page background, the cards and the buttons take their colours from the theme. "Switch to dark" changes them; nothing in the markup gets a `style` attribute, and the classes of the components stay the same: only the `:root` rule of the theme is rewritten.
-- The second card is under a nested `ThemeProvider` with a partial theme: it keeps its own surface, text and button colour in both themes. In the developer tools its wrapper is a `div` with `display: contents` and the theme classes.
+- The page background, the cards and the buttons take their colours from the theme. "Switch the page to dark" changes them; nothing in the markup gets a `style` attribute, and the classes of the components stay the same: only the `:root` rule of the theme is rewritten.
+- The second card is under a nested `ThemeProvider` with a partial theme: it keeps its own surface, text and button colour in both themes of the page. Its own button, "Follow the page", gives that provider nothing, and the card takes the page's colours; "Use the brand theme" gives the partial theme back. In the developer tools its wrapper is a `div` with `display: contents` and the theme classes.
 - The last card says `umber-style/react resolved to the React binding (web)`, `themeClass(lightTheme)` gave a class string such as `umber-theme-1cc15bl umber-boundary`, and a sheet entry is a class.
 
 On a phone, the same screen: the same cards and colours, the button switches the theme. The last card should say `umber-style/react resolved to the React Native binding`, `themeClass(lightTheme) gave ""` (React Native has no classes), a sheet entry is a style object such as `{"fontSize":13,"color":"#6b625c"}`, and the elements are `View, Text and Pressable`.
@@ -49,9 +49,10 @@ The app was not run on a device or an emulator here (the machine has no Android 
 1. Install Expo Go for SDK 58 from the App Store or Google Play (Expo Go 58.0.7 on iOS, 58.0.5 on Android when this was written). Expo Go runs one SDK; if yours is for another one, `npx expo start` says so.
 2. In this folder: `npm install`, then `npx expo start`.
 3. Scan the QR code that the terminal prints: with the Camera app on iOS, with Expo Go ("Scan QR code") on Android. The phone and the computer must be on the same network; if they are not, or a firewall is in the way, run `npx expo start --tunnel` instead.
-4. You should see the title "One source, two platforms", a card that says "The page is in the light theme." with a brown "Switch to dark" button, a light blue card with a blue button (the nested theme), and the "Which binding?" card.
-5. Tap "Switch to dark": the background turns near black, the first card dark, its button light orange, and the text says "The page is in the dark theme."; the blue card stays blue. Tap again to go back.
-6. Read the "Which binding?" card: it should name the React Native binding and show `themeClass(lightTheme) gave ""`.
+4. You should see the title "One source, two platforms", a card that says "The page is in the light theme." with a brown "Switch the page to dark" button, a light blue card with a blue "Follow the page" button (the nested theme), and the "Which binding?" card.
+5. Tap "Switch the page to dark": the background turns near black, the first card dark, its button light orange, and the text says "The page is in the dark theme."; the blue card stays blue. Tap again to go back.
+6. Tap "Follow the page" on the blue card: it takes the colours of the first card, in the page's theme. Tap "Use the brand theme" and it is blue again.
+7. Read the "Which binding?" card: it should name the React Native binding and show `themeClass(lightTheme) gave ""`.
 
 ## Verified
 

@@ -61,6 +61,9 @@ const sheet = StyleSheet.create((theme) => ({
 
 const page = { body: { margin: 0 } }
 
+// A nested provider that is given nothing changes nothing: its section follows the page.
+const pageColours = {}
+
 /** What the binding itself answers: a class string on the web, nothing on React Native. */
 function BindingProbe() {
   const styles = useStyle(sheet)
@@ -90,6 +93,7 @@ function BindingProbe() {
 export default function App() {
   const [scheme, setScheme] = useState<'light' | 'dark'>('light')
   const styles = useStyle(sheet)
+  const [isBrand, setIsBrand] = useState(true)
   const next = scheme === 'light' ? 'dark' : 'light'
   return (
     <ThemeProvider theme={scheme === 'light' ? lightTheme : darkTheme} colorScheme={scheme}>
@@ -99,14 +103,18 @@ export default function App() {
         <Card>
           <Text>{`The page is in the ${scheme} theme.`}</Text>
           <Button onPress={() => setScheme(next)}>
-            <ButtonLabel>{`Switch to ${next}`}</ButtonLabel>
+            <ButtonLabel>{`Switch the page to ${next}`}</ButtonLabel>
           </Button>
         </Card>
-        <ThemeProvider theme={brandTheme}>
+        <ThemeProvider theme={isBrand ? brandTheme : pageColours}>
           <Card>
-            <Text>A nested theme: this card has a surface, text and button of its own.</Text>
-            <Button onPress={() => setScheme(next)}>
-              <ButtonLabel>{`Switch to ${next}`}</ButtonLabel>
+            <Text>
+              {isBrand
+                ? 'A nested theme: this card has a surface, text and button of its own.'
+                : 'No nested theme now: this card follows the page.'}
+            </Text>
+            <Button onPress={() => setIsBrand(!isBrand)}>
+              <ButtonLabel>{isBrand ? 'Follow the page' : 'Use the brand theme'}</ButtonLabel>
             </Button>
           </Card>
         </ThemeProvider>
