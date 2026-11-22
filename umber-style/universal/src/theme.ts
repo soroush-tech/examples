@@ -32,6 +32,7 @@ export const brandTheme = {
   palette: {
     surface: '#eef6f8',
     text: '#0f2a33',
+    muted: '#4a6670',
     primary: '#2a6f8a',
     onPrimary: '#ffffff',
     border: '#b9d3dc',
@@ -43,6 +44,7 @@ export const forestTheme = {
   palette: {
     surface: '#eef7ee',
     text: '#12301a',
+    muted: '#4d6a54',
     primary: '#2e7d44',
     onPrimary: '#ffffff',
     border: '#b8d8bf',
@@ -53,6 +55,7 @@ export const forestDarkTheme = {
   palette: {
     surface: '#12301a',
     text: '#e3f4e6',
+    muted: '#a3c4aa',
     primary: '#86d39a',
     onPrimary: '#0a2110',
     border: '#2c5a38',
