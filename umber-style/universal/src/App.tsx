@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Box, hostElements, Label, Press } from './host'
 import { Global, StyleSheet, styled, themeClass, ThemeProvider, useStyle } from './style'
-import { brandTheme, darkTheme, lightTheme } from './theme'
+import { brandTheme, darkTheme, forestDarkTheme, forestTheme, lightTheme } from './theme'
 
 // One source for the web and for iOS and Android. Nothing here names a platform: the elements come
 // from ./host, the styles from umber-style/react.
@@ -61,9 +61,6 @@ const sheet = StyleSheet.create((theme) => ({
 
 const page = { body: { margin: 0 } }
 
-// A nested provider that is given nothing changes nothing: its section follows the page.
-const pageColours = {}
-
 /** What the binding itself answers: a class string on the web, nothing on React Native. */
 function BindingProbe() {
   const styles = useStyle(sheet)
@@ -93,8 +90,10 @@ function BindingProbe() {
 export default function App() {
   const [scheme, setScheme] = useState<'light' | 'dark'>('light')
   const styles = useStyle(sheet)
-  const [isBrand, setIsBrand] = useState(true)
+  // The last nested section has a switch of its own: it does not follow the page, nor the page it.
+  const [forest, setForest] = useState<'light' | 'dark'>('light')
   const next = scheme === 'light' ? 'dark' : 'light'
+  const nextForest = forest === 'light' ? 'dark' : 'light'
   return (
     <ThemeProvider theme={scheme === 'light' ? lightTheme : darkTheme} colorScheme={scheme}>
       <Global styles={page} />
@@ -106,15 +105,17 @@ export default function App() {
             <ButtonLabel>{`Switch the page to ${next}`}</ButtonLabel>
           </Button>
         </Card>
-        <ThemeProvider theme={isBrand ? brandTheme : pageColours}>
+        <ThemeProvider theme={brandTheme}>
           <Card>
-            <Text>
-              {isBrand
-                ? 'A nested theme: this card has a surface, text and button of its own.'
-                : 'No nested theme now: this card follows the page.'}
-            </Text>
-            <Button onPress={() => setIsBrand(!isBrand)}>
-              <ButtonLabel>{isBrand ? 'Follow the page' : 'Use the brand theme'}</ButtonLabel>
+            <Text>A nested theme: this card keeps a surface and a text colour of its own.</Text>
+            <Text style={styles.note}>The page's switch does not change them.</Text>
+          </Card>
+        </ThemeProvider>
+        <ThemeProvider theme={forest === 'light' ? forestTheme : forestDarkTheme}>
+          <Card>
+            <Text>{`A nested theme with its own switch: this card is in its ${forest} theme.`}</Text>
+            <Button onPress={() => setForest(nextForest)}>
+              <ButtonLabel>{`Switch this card to ${nextForest}`}</ButtonLabel>
             </Button>
           </Card>
         </ThemeProvider>

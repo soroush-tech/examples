@@ -37,3 +37,24 @@ export const brandTheme = {
     border: '#b9d3dc',
   },
 }
+
+/** The light and the dark theme of a section that switches by itself, not with the page. */
+export const forestTheme = {
+  palette: {
+    surface: '#eef7ee',
+    text: '#12301a',
+    primary: '#2e7d44',
+    onPrimary: '#ffffff',
+    border: '#b8d8bf',
+  },
+}
+
+export const forestDarkTheme = {
+  palette: {
+    surface: '#12301a',
+    text: '#e3f4e6',
+    primary: '#86d39a',
+    onPrimary: '#0a2110',
+    border: '#2c5a38',
+  },
+}
