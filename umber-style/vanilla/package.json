@@ -1,0 +1,21 @@
+{
+  "name": "@umber-style-examples/vanilla",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "UmberStyle with no framework: @umber-style/core makes variables, classes and theme classes, and @umber-style/css a class with no theme.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@umber-style/core": "^0.2.0",
+    "@umber-style/css": "^0.2.0"
+  },
+  "devDependencies": {
+    "typescript": "~7.0.2",
+    "vite": "^8.3.8"
+  }
+}

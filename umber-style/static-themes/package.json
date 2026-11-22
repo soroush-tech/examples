@@ -1,0 +1,28 @@
+{
+  "name": "@umber-style-examples/static-themes",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A static page made with UmberStyle and React: light, dark and brand themes as a class on <html>, the stored choice applied before the first paint, nested themes, a theme added at run time and an override through the style prop.",
+  "scripts": {
+    "start": "npm run build && npm run preview",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && vite build --ssr src/prerender.tsx --outDir build/ssr && node build/ssr/prerender.js",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@umber-style/core": "^0.2.0",
+    "@umber-style/react": "^0.2.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.8"
+  }
+}
